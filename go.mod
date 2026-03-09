@@ -2,11 +2,15 @@ module hack
 
 go 1.26
 
-require github.com/urfave/cli/v3 v3.7.0
+require (
+	github.com/chzyer/readline v1.5.1
+	github.com/expr-lang/expr v1.17.8
+	github.com/urfave/cli/v3 v3.7.0
+)
 
 require (
-	github.com/expr-lang/expr v1.17.8 // indirect
 	github.com/stretchr/objx v0.5.2 // indirect
+	golang.org/x/sys v0.0.0-20220310020820-b874c991c1a5 // indirect
 )
 
 require (

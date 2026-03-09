@@ -24,3 +24,12 @@ For example:
 ## High Level Design
 
 <img src="./docs/design.svg" alt="Hack Design" width="500">
+
+## Expected Features
+
+- [ ] time
+- [ ] calculator
+- [ ] http
+- [ ] stub server
+- [ ] proxy
+- [ ] encode / decode

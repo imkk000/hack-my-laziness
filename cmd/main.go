@@ -13,9 +13,9 @@ func main() {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
 		slog.Error("get user home", "err", err)
+		os.Exit(1)
 	}
 	binaryPath := filepath.Join(homeDir, ".bin")
-	slog.Info("get binary path", "path", binaryPath)
 
 	rootCmd := cmdbuilder.BuildRootCommand(binaryPath)
 	if err := rootCmd.Run(context.Background(), os.Args); err != nil {
