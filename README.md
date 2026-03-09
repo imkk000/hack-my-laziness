@@ -15,7 +15,12 @@ So, `hack` was born.
 I designed the commands like kubectl: `hack verb noun`.
 
 For example:
+
 - `hack calc '1+1'` → `2`
 - `hack ask "what is this?" --model=claude` → `This thing is blah blah`
 - `hack get "https://api.myexample.com"` → `{"data":"example"}`
 - `hack run http --config=stub.yaml --port=8000` → starts a stub server with routes from the yaml file
+
+## High Level Design
+
+<img src="./docs/design.svg" alt="Hack Design" width="500">
