@@ -1,0 +1,14 @@
+---
+all: true
+filename: mocks_test.go
+recursive: true
+packages:
+  hack:
+    config:
+      all: true
+  io/fs:
+    config:
+      all: true
+      pkgname: mocks
+      dir: "./pkg/mocks"
+      filename: mocks_{{.InterfaceName}}.go
