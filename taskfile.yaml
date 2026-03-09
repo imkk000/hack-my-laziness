@@ -9,4 +9,12 @@ tasks:
       - mkdir .bin || true
       - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=calculator
       - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=time
+      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=url
+      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=crypto
+      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=password
+      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=network
+      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=watcher
+      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=hashing
+      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=uid
+      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=encoding
       - go build -o {{.OUTPUT_BIN}}/hack cmd/main.go

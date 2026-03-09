@@ -30,8 +30,7 @@ func BuildRootCommand(binaryPath string) *cli.Command {
    )         (
   (           )
  ( (  )   (  ) )
-(__(__)___(__)__)
-`)
+(__(__)___(__)__)`)
 
 					return nil
 				},

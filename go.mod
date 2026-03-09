@@ -3,14 +3,20 @@ module hack
 go 1.26
 
 require (
+	github.com/bwmarrin/snowflake v0.3.0
 	github.com/chzyer/readline v1.5.1
 	github.com/expr-lang/expr v1.17.8
+	github.com/google/uuid v1.6.0
+	github.com/oklog/ulid/v2 v2.1.1
+	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/urfave/cli/v3 v3.7.0
+	go.mongodb.org/mongo-driver/v2 v2.5.0
+	golang.org/x/crypto v0.48.0
 )
 
 require (
 	github.com/stretchr/objx v0.5.2 // indirect
-	golang.org/x/sys v0.0.0-20220310020820-b874c991c1a5 // indirect
+	golang.org/x/sys v0.41.0 // indirect
 )
 
 require (
