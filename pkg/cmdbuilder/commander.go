@@ -2,6 +2,7 @@ package cmdbuilder
 
 import (
 	"context"
+	"fmt"
 	"log/slog"
 	"os"
 	"os/exec"
@@ -17,6 +18,25 @@ func BuildRootCommand(binaryPath string) *cli.Command {
 		Name:                  "hack",
 		Usage:                 "Get Modules",
 		EnableShellCompletion: true,
+		Commands: []*cli.Command{{
+			Name: "my",
+			Commands: []*cli.Command{{
+				Name: "life",
+				Action: func(_ context.Context, _ *cli.Command) error {
+					fmt.Println(`
+    /\_____/\
+   /  o   o  \
+  ( ==  w  == )
+   )         (
+  (           )
+ ( (  )   (  ) )
+(__(__)___(__)__)
+`)
+
+					return nil
+				},
+			}},
+		}},
 	}
 
 	// get all binary names
