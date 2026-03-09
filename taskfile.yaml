@@ -1,0 +1,10 @@
+---
+version: 3
+
+tasks:
+  build:
+    vars:
+      OUTPUT_BIN: .bin
+    cmds:
+      - mkdir .bin || true
+      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=calculator

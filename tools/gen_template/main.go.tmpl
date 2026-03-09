@@ -1,0 +1,54 @@
+package main
+
+import (
+  "context"
+	"encoding/json"
+	"fmt"
+	"log/slog"
+	"os"
+
+	"hack/modules/{{.Module}}"
+	"hack/pkg/walkcmd"
+
+	"github.com/urfave/cli/v3"
+)
+
+var rootCmd = &cli.Command{
+	Name:     "{{.Module}}",
+	Usage:    "Hack module {{.Module}}",
+	Commands: buildCommands(),
+}
+
+func buildCommands() []*cli.Command {
+	fn := {{.Module}}.BuildCommands
+
+	return fn([]*cli.Command{subCompletionCmd})
+}
+
+var subCompletionCmd = &cli.Command{
+	Name:  "completion",
+	Usage: "Get shell completion",
+	Commands: []*cli.Command{
+		{
+			Name:  "json",
+			Usage: "Get completion in JSON format",
+			Action: func(_ context.Context, c *cli.Command) error {
+				info := walkcmd.Walk(c.Root())
+				data, err := json.Marshal(info)
+				if err != nil {
+					return err
+				}
+				fmt.Println(string(data))
+
+				return nil
+			},
+		},
+	},
+}
+
+func main() {
+	if err := rootCmd.Run(context.Background(), os.Args); err != nil {
+		slog.Error("run command", "err", err)
+		os.Exit(1)
+	}
+}
