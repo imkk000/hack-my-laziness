@@ -25,6 +25,10 @@ For example:
 
 <img src="./docs/design.svg" alt="Hack Design" width="500">
 
+## Preview My Idea
+
+<img src="./docs/preview.gif" alt="Hack Preview" width="500">
+
 ## Expected Features
 
 - [ ] time
