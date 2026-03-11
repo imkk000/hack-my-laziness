@@ -1,0 +1,66 @@
+routes:
+  # Basic GET with inline JSON body
+  - method: GET
+    path: /health
+    response:
+      status: 200
+      headers:
+        Content-Type: application/json
+      body: '{"status":"ok"}'
+
+  # Path parameter interpolation — :id in body gets replaced with actual param value
+  - method: GET
+    path: /users/:id
+    response:
+      status: 200
+      headers:
+        Content-Type: application/json
+      body: '{"id":":id","name":"John Doe"}'
+
+  # POST returning 201 Created
+  - method: POST
+    path: /users
+    response:
+      status: 201
+      headers:
+        Content-Type: application/json
+        Location: /users/42
+      body: '{"id":42,"name":"Jane Doe"}'
+
+  # DELETE returning 204 No Content (no body needed)
+  - method: DELETE
+    path: /users/:id
+    response:
+      status: 204
+
+  # Response from file (file takes priority over body)
+  - method: GET
+    path: /products
+    response:
+      status: 200
+      file: testdata/products.json
+
+  # HTML response
+  - method: GET
+    path: /
+    response:
+      status: 200
+      file: testdata/index.html
+
+  # Simulate error response
+  - method: GET
+    path: /error
+    response:
+      status: 500
+      headers:
+        Content-Type: application/json
+      body: '{"error":"internal server error"}'
+
+  # PUT update
+  - method: PUT
+    path: /users/:id
+    response:
+      status: 200
+      headers:
+        Content-Type: application/json
+      body: '{"id":":id","updated":true}'

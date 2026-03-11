@@ -29,7 +29,15 @@ var getTimeNow = &cli.Command{
 			return fmt.Errorf("load location: %w", err)
 		}
 		format := c.String("format")
-		fmt.Println(time.Now().In(loc).Format(format))
+		now := time.Now().In(loc)
+		switch format {
+		case "epochnano":
+			fmt.Println(now.UnixNano())
+		case "epoch":
+			fmt.Println(now.Unix())
+		default:
+			fmt.Println(now.Format(format))
+		}
 
 		return nil
 	},
