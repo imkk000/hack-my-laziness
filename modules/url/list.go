@@ -1,5 +1,7 @@
 package url
 
+import "strings"
+
 type Providers map[string]string
 
 func (p Providers) In(s string) (string, bool) {
@@ -31,4 +33,13 @@ var providers = Providers{
 	"wiki":        "https://en.wikipedia.org/w/index.php?search=%s",
 	"mozilla":     "https://developer.mozilla.org/en-US/search?q=%s",
 	"imdb":        "https://www.imdb.com/find/?q=%s",
+}
+
+func providersUsage() string {
+	list := make([]string, 0, len(providers))
+	for alias := range providers {
+		list = append(list, alias)
+	}
+
+	return strings.Join(list, ", ")
 }

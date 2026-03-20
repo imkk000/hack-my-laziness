@@ -28,6 +28,7 @@ var commands = []*cli.Command{
 						Name:     "provider",
 						Aliases:  []string{"p"},
 						Required: true,
+						Usage:    providersUsage(),
 					},
 					&cli.BoolFlag{
 						Name:    "web",
