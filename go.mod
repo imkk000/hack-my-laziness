@@ -6,6 +6,7 @@ require (
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/chzyer/readline v1.5.1
 	github.com/expr-lang/expr v1.17.8
+	github.com/go-resty/resty/v2 v2.17.2
 	github.com/google/uuid v1.6.0
 	github.com/labstack/echo/v5 v5.0.4
 	github.com/oklog/ulid/v2 v2.1.1
@@ -16,7 +17,6 @@ require (
 )
 
 require (
-	github.com/go-resty/resty/v2 v2.17.2 // indirect
 	github.com/stretchr/objx v0.5.2 // indirect
 	golang.org/x/net v0.49.0 // indirect
 	golang.org/x/sys v0.41.0 // indirect

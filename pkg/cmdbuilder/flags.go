@@ -14,14 +14,14 @@ func buildFlags(flags []model.CmdFlag) []cli.Flag {
 		// TODO: start with 2 types first, add more later (default is string)
 		switch flag.Type {
 		case "bool":
-			cFlags[i] = &cli.BoolFlag{Name: flag.Name}
+			cFlags[i] = &cli.BoolFlag{Name: flag.Name, Usage: flag.Usage}
 		default:
 			if strings.HasPrefix(flag.Type, "[]") {
-				cFlags[i] = &cli.StringSliceFlag{Name: flag.Name}
+				cFlags[i] = &cli.StringSliceFlag{Name: flag.Name, Usage: flag.Usage}
 				continue
 			}
 
-			cFlags[i] = &cli.StringFlag{Name: flag.Name}
+			cFlags[i] = &cli.StringFlag{Name: flag.Name, Usage: flag.Usage}
 		}
 	}
 

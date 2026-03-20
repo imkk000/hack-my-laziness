@@ -28,9 +28,11 @@ func Walk(c *cli.Command) model.CmdInfo {
 				continue
 			}
 			t := reflect.TypeOf(flag.Get()).String()
+			docFlag := flag.(cli.DocGenerationFlag)
 			flags = append(flags, model.CmdFlag{
-				Type: t,
-				Name: name,
+				Type:  t,
+				Name:  name,
+				Usage: docFlag.GetUsage(),
 			})
 		}
 
