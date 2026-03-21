@@ -33,6 +33,9 @@ var providers = Providers{
 	"wiki":        "https://en.wikipedia.org/w/index.php?search=%s",
 	"mozilla":     "https://developer.mozilla.org/en-US/search?q=%s",
 	"imdb":        "https://www.imdb.com/find/?q=%s",
+	"opensub":     "https://www.opensubtitles.com/en/en/search-all/q-%s/hearing_impaired-exclude/machine_translated-/trusted_sources-",
+	"fish":        "https://fishshell.com/docs/current/search.html?q=%s",
+	"cheat":       "https://cheat.sh/%s",
 }
 
 func providersUsage() string {

@@ -29,6 +29,19 @@ For example:
 
 <img src="./docs/preview.gif" alt="Hack Preview" width="500">
 
+## Build
+
+```sh
+# build all module into ~/.bin
+task build
+
+# build one module
+# module_name is package inside modules
+# e.g. task build NAME=url
+
+task build NAME=<module_name>
+```
+
 ## Expected Features
 
 - [ ] time
