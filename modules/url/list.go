@@ -1,6 +1,15 @@
 package url
 
-import "strings"
+import (
+	"context"
+	"fmt"
+	"strings"
+
+	urlpkg "net/url"
+
+	"github.com/pkg/browser"
+	"github.com/urfave/cli/v3"
+)
 
 type Providers map[string]string
 
@@ -38,11 +47,47 @@ var providers = Providers{
 	"cheat":       "https://cheat.sh/%s",
 }
 
-func providersUsage() string {
-	list := make([]string, 0, len(providers))
+func buildProvidersCommands() []*cli.Command {
+	cmd := make([]*cli.Command, 0, len(providers))
+
 	for alias := range providers {
-		list = append(list, alias)
+		cmd = append(cmd, &cli.Command{
+			Name: alias,
+			Flags: []cli.Flag{
+				&cli.StringFlag{
+					Name:  "provider",
+					Value: alias,
+				},
+				&cli.BoolFlag{
+					Name:    "web",
+					Aliases: []string{"w"},
+					Value:   true,
+				},
+			},
+			Action: func(_ context.Context, c *cli.Command) error {
+				provider := c.String("provider")
+				format, valid := providers.In(provider)
+				if !valid {
+					return fmt.Errorf("provider %s: not found", provider)
+				}
+
+				keywords := strings.Join(c.Args().Slice(), " ")
+				q := urlpkg.QueryEscape(keywords)
+				fullURL := fmt.Sprintf(format, q)
+
+				if !c.Bool("web") {
+					fmt.Println(fullURL)
+
+					return nil
+				}
+				if err := browser.OpenURL(fullURL); err != nil {
+					return fmt.Errorf("open browser: %w", err)
+				}
+
+				return nil
+			},
+		})
 	}
 
-	return strings.Join(list, ", ")
+	return cmd
 }

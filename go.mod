@@ -11,7 +11,7 @@ require (
 	github.com/labstack/echo/v5 v5.0.4
 	github.com/oklog/ulid/v2 v2.1.1
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
-	github.com/urfave/cli/v3 v3.7.0
+	github.com/urfave/cli/v3 v3.6.0
 	go.mongodb.org/mongo-driver/v2 v2.5.0
 	golang.org/x/crypto v0.48.0
 )

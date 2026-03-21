@@ -5,6 +5,7 @@ vars:
   OUTPUT_BIN: $HOME/.bin
 
 tasks:
+  install_external: ln -s $(which go-watcher) $HOME/.bin/hack-watcher
   build_mod:
     cmds:
       - mkdir .bin || true
@@ -18,7 +19,6 @@ tasks:
       - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=crypto
       - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=password
       - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=network
-      - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=watcher
       - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=hashing
       - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=uid
       - go run tools/gen.go --output={{.OUTPUT_BIN}} --module=encoding
