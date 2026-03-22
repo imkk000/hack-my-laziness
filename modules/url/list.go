@@ -45,6 +45,7 @@ var providers = Providers{
 	"opensub":     "https://www.opensubtitles.com/en/en/search-all/q-%s/hearing_impaired-exclude/machine_translated-/trusted_sources-",
 	"fish":        "https://fishshell.com/docs/current/search.html?q=%s",
 	"cheat":       "https://cheat.sh/%s",
+	"w3school":    "https://www.w3schools.com/#gsc.tab=0&gsc.q=%s",
 }
 
 func buildProvidersCommands() []*cli.Command {
